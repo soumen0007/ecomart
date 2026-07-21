@@ -37,38 +37,41 @@ Route::post('/shopping-list/remove/{id}', [ShoppingListController::class, 'remov
 Route::post('/contact', [ContactController::class,'submit'])
     ->name('contact.submit');
 
-Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
-Route::post('/admin/login', [AdminController::class, 'loginSubmit'])->name('admin.login.submit');
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/login', [AdminController::class, 'login'])
+    ->name('admin.login');
 
-Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
+Route::post('/admin/login', [AdminController::class, 'loginSubmit'])
+    ->name('admin.login.submit');
 
-Route::get('/admin/products/create', [AdminController::class, 'productCreate'])->name('admin.products.create');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
+    ->name('admin.dashboard');
 
-Route::post('/admin/products/store', [AdminController::class, 'productStore'])->name('admin.products.store');
+Route::post('/admin/logout', [AdminController::class, 'logout'])
+    ->name('admin.logout');
 
-Route::get('/admin/products/edit/{id}', [AdminController::class, 'productEdit'])->name('admin.products.edit');
+Route::get('/admin/products', [AdminController::class, 'products'])
+    ->name('admin.products');
 
-Route::post('/admin/products/update/{id}', [AdminController::class, 'productUpdate'])->name('admin.products.update');
-
-Route::post('/admin/products/delete/{id}', [AdminController::class, 'productDelete'])->name('admin.products.delete');
-
-Route::get('/admin/products/create',
-    [AdminController::class,'createProduct'])
+Route::get('/admin/products/create', [AdminController::class, 'productCreate'])
     ->name('admin.products.create');
 
-Route::post('/admin/products/create',
-    [AdminController::class,'storeProduct'])
+Route::post('/admin/products/store', [AdminController::class, 'productStore'])
     ->name('admin.products.store');
-Route::get('/admin/products/edit/{id}', [AdminController::class, 'editProduct'])
+
+Route::get('/admin/products/edit/{id}', [AdminController::class, 'productEdit'])
     ->name('admin.products.edit');
 
-Route::post('/admin/products/update/{id}', [AdminController::class, 'updateProduct'])
+Route::post('/admin/products/update/{id}', [AdminController::class, 'productUpdate'])
     ->name('admin.products.update');
 
-Route::post('/admin/products/delete/{id}', [AdminController::class, 'deleteProduct'])
+Route::post('/admin/products/delete/{id}', [AdminController::class, 'productDelete'])
     ->name('admin.products.delete');
-Route::get('/admin/categories', [AdminController::class, 'categories'])->name('admin.categories');
-Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
-Route::get('/admin/messages', [AdminController::class, 'messages'])->name('admin.messages');
+
+Route::get('/admin/categories', [AdminController::class, 'categories'])
+    ->name('admin.categories');
+
+Route::get('/admin/users', [AdminController::class, 'users'])
+    ->name('admin.users');
+
+Route::get('/admin/messages', [AdminController::class, 'messages'])
+    ->name('admin.messages');
